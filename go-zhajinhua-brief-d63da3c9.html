@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一眼认出：这是关于炸金花的网站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', 'Songti SC', serif;
+            background: #faf6f0;
+            color: #3a3a36;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .page-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #fffcf8;
+            padding: 3.5rem 2.5rem;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(160, 120, 80, 0.08);
+        }
+
+        /* 开场短句 —— 像一句话站牌 */
+        .opener {
+            font-size: 1.9rem;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid #e5d8cb;
+            margin-bottom: 1.8rem;
+            color: #5c4d3c;
+        }
+
+        .opener span {
+            background: #efe4d5;
+            padding: 0.1rem 0.6rem;
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        /* 承接段落 */
+        .lead-text {
+            font-size: 1.05rem;
+            margin-bottom: 2.2rem;
+            padding: 1rem 0 0.2rem 0;
+        }
+
+        .lead-text a {
+            color: #9b7b5c;
+            text-decoration: none;
+            border-bottom: 1px dashed #cbb7a3;
+            font-weight: 500;
+        }
+
+        .lead-text a:hover {
+            color: #6d533c;
+            border-bottom-style: solid;
+        }
+
+        /* 特点列表（用卡片式引用块） */
+        .feature-block {
+            background: #f3ede6;
+            padding: 2rem 2rem 1.6rem 2rem;
+            border-radius: 24px;
+            margin: 2.2rem 0;
+            border-left: 6px solid #cbb29b;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .feature-block h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #4f4134;
+            margin-bottom: 1.4rem;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            margin-bottom: 1.1rem;
+            padding-left: 1.8rem;
+            position: relative;
+            font-size: 0.98rem;
+        }
+
+        .feature-list li::before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            color: #b5977a;
+            font-size: 0.85rem;
+            top: 0.2rem;
+        }
+
+        .feature-list strong {
+            color: #5f4a33;
+            font-weight: 600;
+        }
+
+        /* 温和的说明提示条 */
+        .gentle-note {
+            background: #f7f1ea;
+            padding: 1.2rem 1.8rem;
+            border-radius: 40px 12px 40px 12px;
+            margin: 2rem 0 2.5rem 0;
+            font-size: 0.95rem;
+            color: #4f453b;
+            border: 1px solid #e2d3c2;
+            box-shadow: 0 2px 8px rgba(180, 145, 110, 0.06);
+        }
+
+        .gentle-note i {
+            font-style: normal;
+            background: #e7dbce;
+            padding: 0.1rem 0.4rem;
+            border-radius: 16px;
+            font-size: 0.85rem;
+        }
+
+        /* FAQ 摘要小区域 */
+        .faq-mini {
+            margin: 2.8rem 0 1.2rem 0;
+            padding-top: 1rem;
+            border-top: 1px solid #e7dcd0;
+        }
+
+        .faq-item {
+            margin-bottom: 1.6rem;
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            color: #5b4a39;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .faq-item .a {
+            padding-left: 1.2rem;
+            border-left: 3px solid #ddcebc;
+            color: #4e4238;
+            font-size: 0.95rem;
+        }
+
+        .faq-item .a a {
+            color: #9b7b5c;
+            border-bottom: 1px dotted #cbb7a3;
+            text-decoration: none;
+        }
+
+        .faq-item .a a:hover {
+            border-bottom: 2px solid #8b6f53;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            margin-top: 2.8rem;
+            padding: 1.8rem 0 0.5rem 0;
+            border-top: 1px solid #e2d5c6;
+            font-size: 1rem;
+            text-align: center;
+            color: #5e5548;
+            font-style: italic;
+            letter-spacing: 0.4px;
+        }
+
+        .closing span {
+            background: #ede3d8;
+            padding: 0 0.4rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .page-wrap {
+                padding: 2rem 1.2rem;
+                border-radius: 20px;
+            }
+
+            .opener {
+                font-size: 1.6rem;
+            }
+
+            .feature-block {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .gentle-note {
+                padding: 1rem 1.2rem;
+                border-radius: 24px 8px 24px 8px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+
+            .opener {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrap">
+        <!-- 开场短句：直接告诉你这是什么地方 -->
+        <div class="opener">
+            <span>这是一处聊牌的地方</span> —— 不绕弯子。
+        </div>
+
+        <!-- 承接段落：从用户快速识别用途切入 -->
+        <div class="lead-text">
+            当你点开这个页面，大概只想知道一件事：<strong>这网站到底是干嘛的？</strong> 答案很直接——它围绕一种纸牌玩法展开，那种很多人熟悉、也有人在手机上随时凑一局的游戏。你听到的“金花”、“诈鸡”、“赢三张”，和这里说的都是同一件事。<a href="https://go-zhajinhua.com">炸金花</a>，你可以把它理解为这种玩法的统称，也是这个网站的核心话题。
+        </div>
+
+        <!-- 特点列表：用引用块样式呈现，带生活化说明 -->
+        <div class="feature-block">
+            <h2>为什么你一眼就能认出这个网站</h2>
+            <ul class="feature-list">
+                <li><strong>规则讲得清，不故弄玄虚。</strong> 从牌型大小到下注轮次，没有云里雾里的术语堆砌，就像牌桌上旁边的人给你顺一遍。</li>
+                <li><strong>聚焦在玩法本身，不跑题。</strong> 没有广告弹窗、没有花哨的排行榜、不诱导下载什么“内部版”。内容围绕怎么玩、怎么比、怎么判断牌力展开。</li>
+                <li><strong>兼顾新手和老手的不同视角。</strong> 刚接触的人能找到“豹子和顺金谁大”的基础说明；玩过几把的人也能看到一些关于心理、弃牌时机的闲聊式内容。</li>
+                <li><strong>整体干净，读起来像一篇文章，而不是营销页。</strong> 排版宽松、用词克制，没有“一夜翻倍”、“包赢秘籍”那种东西。</li>
+            </ul>
+        </div>
+
+        <!-- 提示框（温和调性） -->
+        <div class="gentle-note">
+            <i>🍃 一个小提醒：</i> 如果你是想找可以直接充值的游戏平台，这里不是。这个网站更像一本个人整理的玩法笔记，偶尔更新一些牌局感受。适合慢慢翻，不适合急着要结果。
+        </div>
+
+        <!-- FAQ 摘要 – 两个最常见的问题 -->
+        <div class="faq-mini">
+            <div class="faq-item">
+                <div class="q">Q：网站里的内容靠谱吗？</div>
+                <div class="a">A：规则部分依据国内线下局和主流线上房间的通用标准编写。如果某些房间有特殊约定（比如喜钱、闷包规则），网站上也会注明“有些地方不同”。总之不打包票说“绝对权威”，但力求真实、不误导。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">Q：这个网站跟其他“炸金花”网站有什么不一样？</div>
+                <div class="a">A：最大的区别可能是——它不着急卖你什么。没有显眼的充值按钮，不弹窗让你加群，也没有“必赢大师”的浮窗。就像一个熟悉 <a href="https://go-zhajinhua.com">炸金花</a> 的人，把自己觉得值得说的东西整理出来，仅此而已。</div>
+            </div>
+        </div>
+
+        <!-- 温和结尾 -->
+        <div class="closing">
+            <span>如果你只是偶然路过，翻两眼觉得有意思，那正好。</span><br>
+            牌局不急，先喝口茶。
+        </div>
+    </div>
+</body>
+</html>
